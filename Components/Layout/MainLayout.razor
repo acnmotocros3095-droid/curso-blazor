@@ -60,7 +60,8 @@
 
     private List<Link> links = new List<Link>()
     {
-        new("Inicio", "/"),
+        new Link(label:"inicio", address: "/"),
+        new Link(label: "catalogo", address:"/catalogo")
     };
 
     protected override void OnInitialized()

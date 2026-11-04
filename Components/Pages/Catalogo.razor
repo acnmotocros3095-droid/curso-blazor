@@ -1,0 +1,69 @@
+@page "/catalogo"
+
+<h2>Cafés Disponibles</h2>
+
+<div style="display: flex; gap: 20px;">
+@foreach (Cafe cafe in listCafe)
+{
+    <div style="border:1px solid #ccc; padding:15px; margin:15px; width:300px;">
+        <img src="@cafe.Imagen"
+             alt="@cafe.NombreCafe"
+             style="width:100%; height:200px; object-fit:cover;" />
+
+        <h3>@cafe.NombreCafe</h3>
+
+        <p>
+            <strong>Precio:</strong>
+            Bs. @cafe.PrecioCafe
+        </p>
+
+        <p>@cafe.DescripcionCafe</p>
+    </div>
+}
+</div>
+
+@code {
+
+    private List<Cafe> listCafe = new List<Cafe>
+    {
+        new Cafe()
+        {
+            NombreCafe = "Espresso",
+            DescripcionCafe = "Café concentrado de sabor intenso y aroma profundo, preparado con agua caliente a presión.",
+            PrecioCafe = 12.50m,
+            Imagen = "https://static.vecteezy.com/system/resources/previews/023/341/388/non_2x/espresso-coffee-cup-photo.jpg"
+        },
+
+        new Cafe()
+        {
+            NombreCafe = "Cappuccino",
+            DescripcionCafe = "Combinación equilibrada de espresso, leche vaporizada y espuma de leche.",
+            PrecioCafe = 18.00m,
+            Imagen = "https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/cappuccino.jpg"
+        },
+
+        new Cafe()
+        {
+            NombreCafe = "Latte",
+            DescripcionCafe = "Bebida suave preparada con espresso y abundante leche caliente con una ligera capa de espuma.",
+            PrecioCafe = 20.00m,
+            Imagen = "https://www.coffeecityusa.com/wp-content/uploads/2018/01/6-latte.jpg"
+        },
+
+        new Cafe()
+        {
+            NombreCafe = "Mocha",
+            DescripcionCafe = "Deliciosa mezcla de espresso, chocolate y leche coronada con crema.",
+            PrecioCafe = 22.50m,
+            Imagen = "https://www.deliciousmeetshealthy.com/wp-content/uploads/2021/03/Mocha-Coffee-9.jpg"
+        }
+    };
+
+    public class Cafe
+    {
+        public string Imagen { get; set; } = string.Empty;
+        public string NombreCafe { get; set; } = string.Empty;
+        public string DescripcionCafe { get; set; } = string.Empty;
+        public decimal PrecioCafe { get; set; }
+    }
+}
