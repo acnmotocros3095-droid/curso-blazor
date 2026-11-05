@@ -1,0 +1,29 @@
+<article class="group flex flex-col bg-white border border-[#EADBC8] rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_12px_28px_rgba(29,63,110,0.18)] hover:border-[#E8751A] hover:-translate-y-1 transition duration-300">
+
+    <div class="relative h-52 overflow-hidden">
+        <!-- Usa el parámetro 'Imagen' -->
+        <img src="@Imagen" alt="@NombreCafe" class="w-full h-full object-cover sepia-[.2] group-hover:sepia-0 group-hover:scale-105 transition duration-500" />
+        <span class="absolute top-3 right-3 bg-[#E8751A] text-white text-sm font-semibold tracking-wide px-3 py-1 rounded-full ring-2 ring-white/70 shadow-md">@PrecioCafe Bs.</span>
+    </div>
+
+    <div class="flex flex-col flex-1 p-5 gap-2">
+        <h2 class="font-serif text-xl font-semibold text-[#1D3F6E]">@NombreCafe</h2>
+        <div class="h-0.5 w-10 bg-[#E8751A] rounded-full"></div>
+        <p class="text-sm leading-relaxed text-[#6B4A33]">
+            <b class="block mb-1 text-[11px] font-semibold uppercase tracking-widest text-[#E8751A]">Descripción</b>
+            @DescripcionCafe
+        </p>
+    </div>
+
+</article>
+
+@code {
+    [Parameter]
+    public string Imagen { get; set; } = string.Empty;
+    [Parameter]
+    public string NombreCafe { get; set; } = string.Empty;
+    [Parameter]
+    public string DescripcionCafe { get; set; } = string.Empty;
+    [Parameter]
+    public decimal PrecioCafe { get; set; }
+}

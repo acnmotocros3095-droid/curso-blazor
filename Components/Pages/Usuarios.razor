@@ -1,0 +1,63 @@
+@page "/usuarios"
+
+<h3>Lista de Usuarios</h3>
+<div>
+    <div class="row">
+        @foreach (var usuario in lstUsuarios)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@usuario.Imagen" class="card-img-top" alt="@usuario.Nombre" />
+                    <div class="card-body">
+                        <h5 class="card-title">@usuario.Nombre @usuario.Apellido</h5>
+                        <p class="card-text"><strong>Email:</strong> @usuario.Email</p>
+                        <p class="card-text"><strong>Teléfono:</strong> @usuario.Telefono</p>
+                        <p class="card-text"><strong>Carrera:</strong> @usuario.Carrera</p>
+                        <p class="card-text"><strong>Edad:</strong> @usuario.Edad años</p>
+                        <p class="card-text"><strong>Estatura:</strong> @usuario.Estatura m</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<Usuario> lstUsuarios = new List<Usuario>()
+    {
+        new Usuario("https://randomuser.me/api/portraits/men/1.jpg", "Alejandro", "Condori", "alejandro.condori@univalle.edu", "71548962", "Ingeniería de Sistemas", 20, 1.68),
+        new Usuario("https://randomuser.me/api/portraits/women/2.jpg", "Camila", "Mamani", "camila.mamani@univalle.edu", "72365412", "Ingeniería Comercial", 21, 1.60),
+        new Usuario("https://randomuser.me/api/portraits/men/3.jpg", "Rodrigo", "Pérez", "rodrigo.perez@univalle.edu", "79812345", "Medicina", 22, 1.75),
+        new Usuario("https://randomuser.me/api/portraits/women/4.jpg", "Valeria", "Flores", "valeria.flores@univalle.edu", "76498732", "Derecho", 20, 1.62),
+        new Usuario("https://randomuser.me/api/portraits/men/5.jpg", "Diego", "Quispe", "diego.quispe@univalle.edu", "73126549", "Ingeniería de Sistemas", 23, 1.70),
+        new Usuario("https://randomuser.me/api/portraits/women/6.jpg", "Lucía", "Fernández", "lucia.fernandez@univalle.edu", "77894512", "Arquitectura", 19, 1.65),
+        new Usuario("https://randomuser.me/api/portraits/men/7.jpg", "Marco", "Salazar", "marco.salazar@univalle.edu", "70147852", "Ingeniería Civil", 24, 1.80),
+        new Usuario("https://randomuser.me/api/portraits/women/8.jpg", "Daniela", "Rojas", "daniela.rojas@univalle.edu", "72589631", "Psicología", 21, 1.57),
+        new Usuario("https://randomuser.me/api/portraits/men/9.jpg", "Carlos", "Nina", "carlos.nina@univalle.edu", "79321456", "Ingeniería de Sistemas", 22, 1.72),
+        new Usuario("https://randomuser.me/api/portraits/women/10.jpg", "Gabriela", "Vargas", "gabriela.vargas@univalle.edu", "74125896", "Administración de Empresas", 20, 1.63)
+    };
+
+    public class Usuario
+    {
+        public string Imagen { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Email { get; set; }
+        public string Telefono { get; set; }
+        public string Carrera { get; set; }
+        public int Edad { get; set; }
+        public double Estatura { get; set; }
+
+        public Usuario(string imagen, string nombre, string apellido, string email, string telefono, string carrera, int edad, double estatura)
+        {
+            Imagen = imagen;
+            Nombre = nombre;
+            Apellido = apellido;
+            Email = email;
+            Telefono = telefono;
+            Carrera = carrera;
+            Edad = edad;
+            Estatura = estatura;
+        }
+    }
+}
