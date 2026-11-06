@@ -1,6 +1,13 @@
-using Components/CoffeCard.razor
 @page "/catalogo"
-
+@using sharpness_sharp.Components.UIComponents
+<button @onclick="MostrarCafes" class="border border-[#1D3F6E] hover:bg-[#1D3F6E] hover:text-[#FBF5EC] text-[#1D3F6E] py-2 px-4 rounded-full transition duration-300">Pulsame me</button>
+<div class="hover:bg-[#1D3F6E] hover:text-[#FBF5EC] text-[#1D3F6E] py-2 px-4 rounded-full transition duration-300">
+    @foreach (var cafe in listCafeNombres)
+    {
+        <p class="border border-[#1D3F6E] hover:bg-[#1D3F6E] hover:text-[#FBF5EC] text-[#1D3F6E] py-2 px-4 rounded-full transition duration-300 bg-[#FBF5EC]">@cafe</p>
+    }
+</div>  
+<button @onclick="agregarCafe" class="border border-[#1D3F6E] hover:bg-[#1D3F6E] hover:text-[#FBF5EC] text-[#1D3F6E] py-2 px-4 rounded-full transition duration-300">Agregar Cafe</button>
 <div class="min-h-screen bg-[#FBF5EC] font-sans px-6 py-10 md:px-10">
 
     <header class="max-w-7xl mx-auto text-center mb-12 bg-[#1D3F6E] rounded-3xl px-6 py-12 shadow-lg">
@@ -29,6 +36,22 @@ using Components/CoffeCard.razor
 
 
 @code {
+    
+    List<string> listCafeNombres = new();
+    void MostrarCafes()
+    {
+        listCafeNombres.Add(item:"Americano");
+    }      
+    
+    void agregarCafe()
+    {
+        lstCafes.Add(new Cafe(
+            "https://cuplacoffee.com/wp-content/uploads/2025/03/what-is-an-americano-featured.jpg", 
+            "Nuevo Cafe", 
+            "Espresso diluido con agua caliente.", 
+            100m
+        ));
+    }
 
     private List<Cafe> lstCafes = new()
 {
